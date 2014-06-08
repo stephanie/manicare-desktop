@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="masthead" style="background-image: url('<?= $url; ?>');">
 	</div>
 	<div id="page-header">
-		<h1 class="page-title"><? the_title(); ?> </h1>
+		<h1 class="page-title"><? the_title(); ?></h1>
 		<h2 class="page-description">Example subheading</h2>
 	</div>
 

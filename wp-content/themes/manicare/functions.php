@@ -1,8 +1,8 @@
 <?php
 /**
- * landscape functions and definitions
+ * manicare functions and definitions
  *
- * @package landscape
+ * @package manicare
  */
 
 /**
@@ -18,7 +18,7 @@ if ( ! isset( $content_width ) )
 require( get_template_directory() . '/inc/jetpack.php' );
 
 
-if ( ! function_exists( 'landscape_setup' ) ) :
+if ( ! function_exists( 'manicare_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -27,7 +27,7 @@ if ( ! function_exists( 'landscape_setup' ) ) :
  * support post thumbnails.
  *
  */
-function landscape_setup() {
+function manicare_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -47,10 +47,10 @@ function landscape_setup() {
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on landscape, use a find and replace
-	 * to change 'landscape' to the name of your theme in all the template files
+	 * If you're building a theme based on manicare, use a find and replace
+	 * to change 'manicare' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'landscape', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'manicare', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -68,7 +68,7 @@ function landscape_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'landscape' ),
+		'primary' => __( 'Primary Menu', 'manicare' ),
 	) );
 	
 	add_editor_style();
@@ -78,16 +78,16 @@ function landscape_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside' ) );
 }
-endif; // landscape_setup
-add_action( 'after_setup_theme', 'landscape_setup' );
+endif; // manicare_setup
+add_action( 'after_setup_theme', 'manicare_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  *
  */
-function landscape_widgets_init() {
+function manicare_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Left Sidebar', 'landscape' ),
+		'name' => __( 'Left Sidebar', 'manicare' ),
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -95,7 +95,7 @@ function landscape_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Middle Sidebar', 'landscape' ),
+		'name' => __( 'Middle Sidebar', 'manicare' ),
 		'id' => 'sidebar-2',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -103,7 +103,7 @@ function landscape_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Right Sidebar', 'landscape' ),
+		'name' => __( 'Right Sidebar', 'manicare' ),
 		'id' => 'sidebar-3',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -112,7 +112,7 @@ function landscape_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name' => __( 'Homepage Left Sidebar', 'landscape' ),
+		'name' => __( 'Homepage Left Sidebar', 'manicare' ),
 		'id' => 'homepage-left-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -120,7 +120,7 @@ function landscape_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Homepage Middle Sidebar', 'landscape' ),
+		'name' => __( 'Homepage Middle Sidebar', 'manicare' ),
 		'id' => 'homepage-middle-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -128,7 +128,7 @@ function landscape_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Homepage Right Sidebar', 'landscape' ),
+		'name' => __( 'Homepage Right Sidebar', 'manicare' ),
 		'id' => 'homepage-right-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -136,38 +136,35 @@ function landscape_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'landscape_widgets_init' );
+add_action( 'widgets_init', 'manicare_widgets_init' );
 
 
 /**
  * if lt IE 9
  */
-function landscape_head(){
+function manicare_head(){
 ?>
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php
 }
-add_action( 'wp_head', 'landscape_head');
+add_action( 'wp_head', 'manicare_head');
 
 /**
  * Enqueue scripts and styles
  */
-function landscape_scripts() {
+function manicare_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script( 'homepage', get_template_directory_uri() . '/js/homepage.js', array( 'jquery' ));
 
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'landscape_scripts' );
+add_action( 'wp_enqueue_scripts', 'manicare_scripts' );
 
 /**
  * Adds custom background support
