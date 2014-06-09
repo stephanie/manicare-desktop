@@ -22,10 +22,11 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header class="site-header" role="banner">
+    <img src="<? bloginfo('template_directory'); ?>/images/logo.png">
+    <p class="slogan">
+      the manicure to show you care
+    </p>
 		<nav role="navigation" class="site-navigation main-navigation">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'landscape' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#conlandscapet" title="<?php esc_attr_e( 'Skip to conlandscapet', 'landscape' ); ?>"><?php _e( 'Skip to conlandscapet', 'landscape' ); ?></a></div>
-
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- .site-navigation .main-navigation -->
 	</header><!-- #masthead .site-header -->

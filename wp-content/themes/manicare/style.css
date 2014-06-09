@@ -15,7 +15,7 @@ along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normali
 and Blueprint http://www.blueprintcss.org/
 */
 
-
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400,300italic);
 /* =Reset
 -------------------------------------------------------------- */
 
@@ -44,7 +44,7 @@ html {
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 body {
-	background: #fff;
+	background: #FFFFFF;
 }
 article,
 aside,
@@ -95,21 +95,22 @@ button,
 input,
 select,
 textarea {
-	color: #000;
-	font-family: georgia, sans-serif;
+	color: #40494D;
+	font-family: 'Muli', sans-serif;
 	font-size: 22px;
 	line-height: 1.5;
+	font-weight: 300;
 }
 
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
 	clear: both;
-	font-family: georgia, serif;
+	font-family: 'Muli', serif;
 	margin: 0 0 30px 0;
+	font-weight: 400;
 }
 h1{
 	font-size:32px;
-	font-family: georgia, serif;
 }
 h2{
 	font-size:28px;
@@ -125,7 +126,6 @@ h5{
 }
 h6{
 	font-size:14px;
-	font-weight:bold;
 }
 hr {
 	background-color: #ccc;
@@ -216,7 +216,7 @@ table {
 	width: 100%;
 }
 th {
-	font-weight: bold;
+	font-weight: 400;
 }
 button,
 input,
@@ -239,7 +239,7 @@ input[type="submit"] {
 	background: #000;
 	color: #fff;
 	cursor: pointer;
-	font: 700 12px/1 georgia, sans-serif;
+	font: 700 12px/1 'Muli', sans-serif;
 	letter-spacing: 0.1em;
 	padding: 11px 22px;
 	text-transform: uppercase;
@@ -391,64 +391,85 @@ a:focus {
 
 h1.page-title {
 	color: white;
-	font-size: 52px;
+	font-size: 60px;
 	font-style: normal;
-	padding-right: 25%;
-	padding-left: 25%;
+	padding-right: 27%;
+	padding-left: 27%;
 	font-weight:normal;
-	line-height: 1.2;
+	line-height: 0.8;
 	position: relative;
-	font-family: georgia, serif;
-	text-transform: uppercase;
+	text-transform: lowercase;
 }
 
 h2.page-description {
 	color: white;
-	padding-right: 25%;
-	padding-left: 25%;
+	padding-right: 27%;
+	padding-left: 27%;
 	font-size: 17px;
-	font-family:georgia, arial;
+	text-transform: lowercase;
 }
 
 .content-area {
-	padding: 8% 25%;
+	padding: 8% 27%;
+	font-size: 16px;
 }
 
 
-/* =Menu
+/* =Header
 ----------------------------------------------- */
 
-.main-navigation {
+.site-header {
 	position: fixed;
 	width: 100%;
-	height: 70px;
+	height: 120px;
 	top: 0;
 	left: 0;
-	font-family: georgia, arial;
-	text-transform:uppercase;
-	background:black;
+	background:white;
 	z-index: 99999;
-	font-size:14px;
 }
 
-.main-navigation ul {
+.site-header img {
+	height: 100px;
+	padding: 10px 20px;
+}
+
+.site-header .slogan {
+	display: inline-block;
+	top: 50px;
+	position: absolute;
+	margin-left: 15px;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 16px;
+}
+
+nav.main-navigation {
+	float: right;
+	text-transform:uppercase;
+	font-size:16px;
+	padding-top: 25px;
+	display: inline-block;
+	font-weight: 400;
+}
+
+nav.main-navigation ul {
   display: inline-block;
   list-style: none;
   position: absolute;
   right: 10px;
 }
-.main-navigation ul li {
+nav.main-navigation ul li {
 	display: inline-block;
 	position: relative;
 	margin-right: 2em;
 }
 
-.main-navigation ul li a {
-	color: #fff;
+nav.main-navigation ul li a {
+	color: #69C06A;
 }
 
-.main-navigation ul li.current-menu-item a {
-	color: green;
+nav.main-navigation ul li.current-menu-item a {
+	color: #F8B9CE;
 }
 
 /* =Content
@@ -540,98 +561,40 @@ h2.page-description {
 	  top: 0;
 	  left: 0;
 }
+.homepage-opacity {
+	background: rgba(0,0,0,0.25);
+	z-index: -999;
+	/* Set rules to fill background */
+	 min-height: 100%;
+	 min-width: 1024px;
 
-.homepage-full .homepage-content {
+	 /* Set up proportionate scaling */
+	 width: 100%;
+	 height: auto;
+
+	 /* Set up positioning */
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+}
+.homepage-opacity .homepage-content {
 	position: relative;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 200px;
+	padding-top: 23%;
+	width: 600px;
+	color: white;
+	font-weight: 400;
 }
 
-/* =Asides
------------------------------------------------ */
-
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-	display: none;
+.homepage-opacity .homepage-content .homepage-title {
+	font-size: 80px;
+	text-transform: uppercase;
 }
 
-
-/* =Media
------------------------------------------------ */
-
-.site-header img,
-.entry-content img,
-.comment-content img,
-.widget img,
-.single-thumbnail img  {
-	max-width: 100%; /* Fluid images for posts, comments, and widgets */
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+.homepage-opacity .homepage-content p {
+	font-size: 18px;
 }
-.site-header img,
-.entry-content img,
-img[class*="align"],
-img[class*="wp-image-"],
-.single-thumbnail img,
-.widget img  {
-	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-}
-.site-header img,
-.entry-content img,
-img.size-full,
-.single-thumbnail img  {
-
-}
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley,
-.widget img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-	box-shadow:none;
-}
-.wp-caption {
-	border: 1px solid #ccc;
-	margin-bottom: 1.5em;
-	max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 1.2% auto 0;
-	max-width: 98%;
-}
-.wp-caption-text {
-	text-align: center;
-}
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
-}
-.page-content .gallery {
-	margin-bottom: 1.5em;
-}
-.gallery-caption {
-}
-.page-content .gallery a img {
-	border: none;
-	height: auto;
-	max-width: 90%;
-}
-.page-content .gallery dd {
-	margin: 0;
-}
-.page-content .gallery-columns-4 .gallery-item {
-}
-.page-content .gallery-columns-4 .gallery-item img {
-}
-
-/* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
 
 /* =Navigation
 ----------------------------------------------- */
@@ -888,7 +851,7 @@ object {
 	padding:40px;
 	text-align:center;
 	border-top:4px double #e6e6e6;
-	font-size: 14px;
+	font-size: 12px;
 	
 }
 #colophon a{
